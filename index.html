@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+	<title>Python Tricks</title>
+	<style>
+		p{
+			color:firebrick;
+		}
+		h1{
+			text-align:center;
+			
+		}
+		.tip{
+			color:slategrey;
+			font-size: 24px;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	
+		<div class="jumbotron">
+			<h1 class="display-4">def  python_in_a_nutshell(programmer):</h1>
+		</div>
+		<p class="tip"><b>Tip:</b> (on chrome) use  Ctrl + f (Windows, Linux, and Chrome OS) or ⌘ + f (Mac) to quickly find a word or phrase.</p>
+		<div>
+			<p class="display-4"> Strings </p>
+			<ul class="list-group">
+				<li class="list-group-item">A double quoted string can contain single quote and vice versa</li>
+				<li class="list-group-item">To span a text in multiple lines either put it in triple quotes or use \ to break it</li>
+				<li class="list-group-item">Python strings are immutable</li>
+				<li class="list-group-item">The '+' operator can concatenate two strings</li>
+				<li class="list-group-item">Characters in a string can be accessed using the standard [ ] syntax</li>
+				<li class="list-group-item">The <b>len(string)</b> function returns the length of a string</li>
+				<li class="list-group-item">The <b>str(integer)</b> function converts values to a string form so they can be combined with other strings</li>
+				<li class="list-group-item"><b>s.lower(), s.upper()</b> -- returns the lowercase or uppercase version of the string</li>
+				<li class="list-group-item"><b>s.strip()</b> -- returns a string with whitespace removed from the start and end</li>
+				<li class="list-group-item"><b>s.isalpha()</b> -- Return True if all characters in S are alphabetic and there is at least one character in s, False otherwise.<br>
+				similar methods: <b>s.isdigit()</b> and <b>s.isspace()</b></li>
+				<li class="list-group-item"><b>s.split('delim')</b> -- returns a list of substrings separated by the given delimiter</li>
+				<li class="list-group-item"><b>s.join(list)</b> -- opposite of split(), joins the elements in the given list together using the string as the delimiter</li>
+				<li class="list-group-item"><b>s.replace('old', 'new')</b> -- returns a string where all occurrences of 'old' have been replaced by 'new'</li>
+				<li class="list-group-item"><b>s.startswith('other'), s.endswith('other')</b> -- tests if the string starts or ends with the given other string</li>
+				<li class="list-group-item"><b>s.find('other')</b> -- return index of occurence of other in s</li>
+				<li class="list-group-item"><b>s.find('substring',startPosition,endPosition)</b></li>
+				<li class="list-group-item"><b>s.slice[start:end]</b> is used to slice a string</li>
+				<li class="list-group-item">negative numbers can be used to index string from the end </li>
+				<li class="list-group-item">formatted strings -- "%s has %f rating on IMDB" % ("Dead Poets Society",8.1)</li>
+				<li class="list-group-item">add a character to string at a position through slicing -- <b>string[:position] + character + string[position+1:]</b></li>
+				<li class="list-group-item">list of lowercase characters <br/> import string <br/> alphabets = string.ascii.lowercase</li>
+				<li class="list-group-item"><b>s.title()</b> will capitalize first character of each word in the string <br>
+					<b>s.capitalize()</b> will just capitalize the first character in the string</li>
+				<li class="list-group-item">remove duplicates from a string <br>
+					<pre>					   def unique_list(l):
+    						ulist = []
+    						[ulist.append(x) for x in l if x not in ulist]
+    						return ulist</pre></li>
+			</ul>
+			<p class="display-4">List</p>
+			<ul class="list-group">
+				<li class="list-group-item"><b>list.append(elem)</b> -- adds a single element to the end of the list. Common error: does not return the new list, just modifies the original.</li>
+				<li class="list-group-item"><b>list.insert(index, elem)</b> -- inserts the element at the given index, shifting elements to the right.</li>
+				<li class="list-group-item"><b>list.extend(list2)</b> adds the elements in list2 to the end of the list. Using + or += on a list is similar to using extend().</li>
+				<li class="list-group-item"><b>list.index(elem)</b> -- searches for the given element from the start of the list and returns its index. Throws a ValueError if the element does not appear (use "in" to check without a ValueError).</li>
+				<li class="list-group-item"><b>list.remove(elem)</b> -- searches for the first instance of the given element and removes it (throws ValueError if not present)</li>
+				<li class="list-group-item"><b>list.sort()</b> -- sorts the list in place (does not return it). (The sorted() function shown later is preferred.)</li>
+				<li class="list-group-item"><b>list.reverse()</b> -- reverses the list in place (does not return it)</li>
+				<li class="list-group-item"><b>list.pop(index)</b> -- removes and returns the element at the given index. Returns the rightmost element if index is omitted (roughly the opposite of append())</li>
+				<li class="list-group-item">convert a string to list -- <b>l = list(string)</b></li>
+				
+			</ul>
+			<p class="display-4">Sorting</p>
+			<ul class="list-group">
+				<li class="list-group-item"><b>sorted(iterable)</b> -- returns a sorted list, to sort in reverse use -- sorted(iterable,reverse=True)</li>
+				<li class="list-group-item"><b>sorted(list,key=len)</b> -- will sort list according to the length of individual strings</li>
+				<li class="list-group-item"><b>sorted(list,key=str.lower)</b> -- will treat uppercase and lowercase as the same</li>
+				<li class="list-group-item"></li>
+			</ul>
+			<p class="display-4">Miscellaneous</p>
+			<ul class="list-group">
+				<li class="list-group-item">There is no ++ operator, use += instead</li>
+				<li class="list-group-item">If you want integer division, use 2 slashes e.g. 6 // 5 is 1</li>
+				<li class="list-group-item">for loops are faster than while loops</li>
+				<li class="list-group-item">exponents are evaluated with ** operator </li>
+				<li class="list-group-item">if you don't want to print new line after print(), use print('blah blah',end="")</li>
+				<li class="list-group-item">float precision -- "{:.nf}".format(variable_name) where n is the precision </li>
+				<li class="list-group-item">t = tuple(list) -- is used to convert a list into a tuple</li>
+				<li class="list-group-item">print permutation of an iterable using itertools.permutations
+				<br/> from itertools import permutations <br> my_list = permutations(my_string,r=length_of_combinations)</li>
+				<li class="list-group-item">textwrap.fill(string, max_width) will convert a long string into paragraph of lines with max_width width</li>
+				<li class="list-group-item">textwrap.wrap(string, max_width) will return a string while textwrap.fill will return a string</li>
+				<li class="list-group-item"><b>collections.Counter()</b><br>
+    				A counter is a container that stores elements as dictionary keys, and their counts are stored as dictionary values. <br>
+    				<pre>>>> from collections import Counter
+>>> 
+>>> myList = [1,1,2,3,4,5,3,2,3,4,2,1,2,3]
+>>> print Counter(myList)
+Counter({2: 4, 3: 4, 1: 3, 4: 2, 5: 1})
+>>>
+>>> print Counter(myList).items()
+[(1, 3), (2, 4), (3, 4), (4, 2), (5, 1)]
+>>> 
+>>> print Counter(myList).keys()
+[1, 2, 3, 4, 5]
+>>> 
+>>> print Counter(myList).values()
+[3, 4, 4, 2, 1]</pre></li>
+				</ul>
+				<p class="display-4">Sets</p>
+				<ul class="list-group">
+				<li class="list-group-item">A <b>set</b> is an unordered collection of elements without duplicate entries. 
+				When printed, iterated or converted into a sequence, its elements will appear in an arbitrary order.
+				Example: if you want to find average of all the distinct numbers in a list then use: <br>
+			    <b>sum</b>(set(array))/<b>len</b>(set(array))</li>
+			    <li><b>Creating sets</b>
+			    	<pre>	>> myset = {1, 2} # Directly assigning values to a set
+	>> myset = set()  # Initializing a set
+	>> myset = set(['a', 'b']) # Creating a set from a list</pre>
+				<b>Modifying sets</b><br>
+				<pre>	>> myset.add('c')
+	>> myset
+	{'a', 'c', 'b'}
+	>> myset.add('a') # As 'a' already exists in the set, nothing happens
+	>> myset.add((5, 4))
+	>> myset
+	{'a', 'c', 'b', (5, 4)}</pre>
+				<b>Modifying sets using update function</b><br/>
+				<pre>	>> myset.update([1, 2, 3, 4]) # update() only works for iterable objects
+	>> myset
+	{'a', 1, 'c', 'b', 4, 2, (5, 4), 3}
+	>> myset.update({1, 7, 8})
+	>> myset
+	{'a', 1, 'c', 'b', 4, 7, 8, 2, (5, 4), 3}
+	>> myset.update({1, 6}, [5, 13])
+	>> myset
+	{'a', 1, 'c', 'b', 4, 5, 6, 7, 8, 2, (5, 4), 13, 3}</pre>
+				</li>
+				<b>Removing items</b>
+				Both the discard() and remove() functions take a single value as an argument and removes that value from the set. If that value is not present, discard() does nothing, but remove() will raise a KeyError exception.
+				<pre>	>> myset.discard(10)
+	>> myset
+	{'a', 1, 'c', 'b', 4, 5, 7, 8, 2, 12, (5, 4), 13, 11, 3}
+	>> myset.remove(13)
+	>> myset
+	{'a', 1, 'c', 'b', 4, 5, 7, 8, 2, 12, (5, 4), 11, 3}</pre>
+
+			<b>Common Set Operations</b>
+			Using union(), intersection() and difference() functions. 
+			<pre>	>> a = {2, 4, 5, 9}
+	>> b = {2, 4, 11, 12}
+	>> a.union(b) # Values which exist in a or b
+	{2, 4, 5, 9, 11, 12}
+	>> a.intersection(b) # Values which exist in a and b
+	{2, 4}
+	>> a.difference(b) # Values which exist in a but not in b
+	{9, 5}</pre>
+			The union() and intersection() functions are symmetric methods: 
+			<pre>	>> a.union(b) == b.union(a)
+	True
+	>> a.intersection(b) == b.intersection(a)
+	True
+	>> a.difference(b) == b.difference(a)
+	False</pre>
+			</ul>
+			<p class="display-4"> Formatting </p>
+			<ul class="list-group">
+				<li class="list-group-item"><b>Note: number after colon ":" represents total characters </b></li>
+				<li class="list-group-item">simple formatting -- '{} &nbsp&nbsp {}'.format('Atul', 'Bhatt') -- the output will have 3 spaces between "Atul" and "Bhatt".</li>
+				<li class="list-group-item">right align your value -- '{:>10}'.format('test') -- test will have 6 spaces before it.</li>
+				<li class="list-group-item">left align your value -- '{:10}'.format('text') -- test will have 6 spaces after it.</li>
+				<li class="list-group-item">you can also specify the character instead of spaces -- '{:_&lt10}'.format('text') -- text will have 6 underscores after it </li>
+				<li class="list-group-item">center align your string -- '{:^10}'.format('text')</li>
+				<li class="list-group-item">truncate a string -- '{:.5}'format('thinkingfast') -- it will only print think</li>
+				<li class="list-group-item">It is possible to combine truncating and padding '{:_>10.5}'.format('thinkingfast'} -- it will print five underscores and then think</li>
+				<li class="list-group-item">padding with numbers -- '{:10d}'.format(15) -- 15 will have 8 spaces before it</li>
+				<li class="list-group-item">padding with numbers -- '{:>010d}'.format(15) -- it will print 8 zeros before 15</li>
+				<li class="list-group-item">padding with float -- '{:06.2f}'.format(15.34342232) -- two digits after decimal point, total 6 characters with zeroes from left</li>
+				<li class="list-group-item">positive and negative with integers -- '{:+d}'.format(12) -- it will print +12</li>
+				<li class="list-group-item">space between character and value -- '{:=+10d}'.format(12) -- it will print 7 spaces between + and 12</li>
+				<li class="list-group-item">Date and time formatting <br/> from datetime import datetime <br/> 
+					'{:%Y-%m-%d %H:%M}'.format(datetime(2001, 2, 3, 4, 5)) <br/> Output 2001-02-03 04:05 </li>
+				<li class="list-group-item">print binary equivalent of a number -- '{0:b}'.format(23) <br/> similarly use o for octal, x (lowercase) for lowercase hexadecimal X (uppercase) for uppercase hexadecimal</li>
+			</ul>
+			<p class="display-4"> Slicing </p>
+			<ul class="list-group">
+				<li class="list-group-item">
+				a[start:end] -- # items start through end-1 <br/>
+				a[start:] ------ # items start through the rest of the array<br/>
+				a[:end] ------- # items from the beginning through end-1<br>
+				a[:] ----------- # a copy of the whole array</li>
+				<li class="list-group-item">There is also the step value, which can be used with any of the above:<br/>
+				a[start:end:step] # start through not past end, by step</li>
+				<li class="list-group-item">a[-1] &nbsp&nbsp&nbsp # last item in the array<br/>
+				a[-2:]   &nbsp&nbsp&nbsp # last two items in the array<br/>
+				a[:-2]   &nbsp&nbsp&nbsp # everything except the last two items</li>
+				<li class="list-group-item">Similarly, step may be a negative number: <br/>
+					a[::-1]    &nbsp&nbsp&nbsp# all items in the array, reversed<br/>
+					a[1::-1]   &nbsp&nbsp&nbsp# the first two items, reversed<br/>
+					a[:-3:-1] &nbsp&nbsp&nbsp # the last two items, reversed<br/>
+					a[-3::-1]  &nbsp&nbsp&nbsp# everything except the last two items, reversed</li>
+			</ul>
+			<p class="display-4"> Calendar </p>
+			<ul class="list-group">
+				<li class="list-group-item">
+					<pre>>>> import calendar
+>>> 
+>>> print calendar.TextCalendar(firstweekday=6).formatyear(2015)
+                                  2015
+
+      January                   February                   March
+Su Mo Tu We Th Fr Sa      Su Mo Tu We Th Fr Sa      Su Mo Tu We Th Fr Sa
+             1  2  3       1  2  3  4  5  6  7       1  2  3  4  5  6  7
+ 4  5  6  7  8  9 10       8  9 10 11 12 13 14       8  9 10 11 12 13 14
+11 12 13 14 15 16 17      15 16 17 18 19 20 21      15 16 17 18 19 20 21
+18 19 20 21 22 23 24      22 23 24 25 26 27 28      22 23 24 25 26 27 28
+25 26 27 28 29 30 31                                29 30 31
+
+       April                      May                       June
+Su Mo Tu We Th Fr Sa      Su Mo Tu We Th Fr Sa      Su Mo Tu We Th Fr Sa
+          1  2  3  4                      1  2          1  2  3  4  5  6
+ 5  6  7  8  9 10 11       3  4  5  6  7  8  9       7  8  9 10 11 12 13
+12 13 14 15 16 17 18      10 11 12 13 14 15 16      14 15 16 17 18 19 20
+19 20 21 22 23 24 25      17 18 19 20 21 22 23      21 22 23 24 25 26 27
+26 27 28 29 30            24 25 26 27 28 29 30      28 29 30
+                          31
+
+        July                     August                  September
+Su Mo Tu We Th Fr Sa      Su Mo Tu We Th Fr Sa      Su Mo Tu We Th Fr Sa
+          1  2  3  4                         1             1  2  3  4  5
+ 5  6  7  8  9 10 11       2  3  4  5  6  7  8       6  7  8  9 10 11 12
+12 13 14 15 16 17 18       9 10 11 12 13 14 15      13 14 15 16 17 18 19
+19 20 21 22 23 24 25      16 17 18 19 20 21 22      20 21 22 23 24 25 26
+26 27 28 29 30 31         23 24 25 26 27 28 29      27 28 29 30
+                          30 31
+
+      October                   November                  December
+Su Mo Tu We Th Fr Sa      Su Mo Tu We Th Fr Sa      Su Mo Tu We Th Fr Sa
+             1  2  3       1  2  3  4  5  6  7             1  2  3  4  5
+ 4  5  6  7  8  9 10       8  9 10 11 12 13 14       6  7  8  9 10 11 12
+11 12 13 14 15 16 17      15 16 17 18 19 20 21      13 14 15 16 17 18 19
+18 19 20 21 22 23 24      22 23 24 25 26 27 28      20 21 22 23 24 25 26
+25 26 27 28 29 30 31      29 30                     27 28 29 30 31</pre>
+				</li>
+				<li class="list-group-item"><b>calendar.day_name</b> is the array of day names 0: monday 1:tuesday</li>
+				<li class="list-group-item"><b>calendar.weekday(year, month, date)</b> returns the day on that date</li>
+				<li class="list-group-item">
+				<a href="https://docs.python.org/2/library/calendar.html#calendar.TextCalendar" target="_blank">More about Calendar module</a></li>
+</body>
+</html>
